@@ -24,3 +24,7 @@ func (cards deck) print() {
 		fmt.Println(index, card)
 	}
 }
+
+func deal(cards deck, handsize int) (deck, deck) {
+	return cards[:handsize], cards[handsize:]
+}
