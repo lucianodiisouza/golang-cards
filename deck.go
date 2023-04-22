@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"strings"
 )
 
@@ -34,4 +35,8 @@ func deal(cards deck, handsize int) (deck, deck) {
 
 func (cards deck) toString() string {
 	return strings.Join([]string(cards), ",")
+}
+
+func (cards deck) saveToFile(filename string) error {
+	return os.WriteFile(filename, []byte(cards.toString()), 0666)
 }
